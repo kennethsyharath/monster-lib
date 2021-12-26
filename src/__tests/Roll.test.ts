@@ -15,3 +15,10 @@ test('roll method creates Result', () => {
   const roll = new Roll(1, new DndOutcomeRuleset(), 1, 2, 3);
   expect(roll.roll() instanceof Result).toBe(true);
 })
+
+test('roll method takes modifiers', () => {
+  const roll = new Roll(1, new DndOutcomeRuleset(), 1, 2, 3);
+
+  // The test is that the following line compiles
+  expect(roll.roll('hasAdvantage'))//ToCompile
+})

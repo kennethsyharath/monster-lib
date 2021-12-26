@@ -1,0 +1,30 @@
+This is literally just a scratch pad for myself so I can think "out loud".
+
+So I need Character definitions.
+
+What is a tabletop rpg character defined by?
+- Statistics
+- Actions
+- Notes (this is just extended text)
+
+What should the data representation be?
+  - Statistics is easy. It's just a number per thing. So a Map<string, number>
+    solves that problem pretty directly.
+  - Actions are a composite object. Actions are made up of other things.
+    We should circle back to this one. I think this is the one we do first
+    explicitly *because* it's the least atomic. We can break it down further.
+  - Notes. A long string.
+  - There could also be more, but most feats fall under notes because they're
+    timing triggers or other somesuch modifiers. So they're the responsibility
+    of the player or dungeon-master.
+
+What are Actions made up of?
+  - An action is anything a character can do as a declaration as part of the
+    game rules.
+  - Therefore an action is made up of multiple Rolls for resolving different
+    pieces of the action
+  - An action may also have other notes attached "on failure the target gets debuffed"
+    There's not a great way to handle this either. Much like feats.
+  - Actions might have different tags for additional properties.
+
+So our next course of action is defining an Action

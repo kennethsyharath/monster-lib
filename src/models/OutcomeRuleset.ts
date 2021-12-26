@@ -1,3 +1,6 @@
+import { Modifier } from "./Modifier";
+
 export interface OutcomeRuleset {
-  apply(bonus: number, dice: number[]):number;
+  resolve(bonus: number, dice: number[]):number;
+  generateDicePool(diceToRoll: number[], ...modifiers: Modifier[]):number[];
 }

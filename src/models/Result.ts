@@ -1,5 +1,6 @@
 import { generateRandomInt } from "../extensions/MathExtensions";
 import { OutcomeRuleset } from "./OutcomeRuleset";
+import { Modifier } from "./Modifier";
 
 export class Result {
   readonly outcome: number;
@@ -7,11 +8,15 @@ export class Result {
   constructor(
       public readonly bonus: number = 0,
       public readonly diceResults: number[] = [],
-      public readonly ruleset: OutcomeRuleset = {apply:() => 0},
-      ...addtlDiceToRoll: [number, number][]
+      public readonly ruleset: OutcomeRuleset = {
+        resolve:() => 0,
+        generateDicePool:() => []
+      }, 
+      addtlDiceToRoll: [number, number][] = [],
+      ...modifiers: Modifier[]
     ) {
     this.rollAddtlDice(addtlDiceToRoll);
-    this.outcome = this.ruleset.apply(this.bonus, this.diceResults);
+    this.outcome = this.ruleset.resolve(this.bonus, this.diceResults);
   }
 
   private rollAddtlDice(addtlDiceToRoll:[number,number][]) {

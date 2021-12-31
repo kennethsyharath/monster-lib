@@ -23,8 +23,8 @@ export class Result {
 
   private rollAddtlDice(addtlDiceToRoll:[number,number][]) {
     addtlDiceToRoll.forEach((ad) => {
-      let sides = ad[0];
-      let count = ad[1];
+      const sides = ad[0];
+      const count = ad[1];
       for (let i = 1; i <= count; i++) {
         this.diceResults.push(generateRandomInt(1, sides));
       }

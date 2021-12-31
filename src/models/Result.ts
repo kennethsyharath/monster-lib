@@ -4,6 +4,7 @@ import { Modifier } from "./Modifier";
 
 export class Result {
   readonly outcome: number;
+  readonly modifiers: Modifier[];
 
   constructor(
       public readonly bonus: number = 0,
@@ -17,6 +18,7 @@ export class Result {
     ) {
     this.rollAddtlDice(addtlDiceToRoll);
     this.outcome = this.ruleset.resolve(this.bonus, this.diceResults);
+    this.modifiers = modifiers;
   }
 
   private rollAddtlDice(addtlDiceToRoll:[number,number][]) {

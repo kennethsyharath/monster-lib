@@ -33,5 +33,6 @@ test('DndOutcomeRuleset applies advantage', () => {
   expect(toHitResults).toBeDefined();
   if (toHitResults) {
     expect(toHitResults.diceResults.length).toBe(2);
+    expect(toHitResults.modifiers.includes("hasAdvantage")).toBe(true);
   }
 });

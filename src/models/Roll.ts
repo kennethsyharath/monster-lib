@@ -23,6 +23,8 @@ export class Roll {
     return new Result(
       this.bonus, 
       diceResults, 
-      this.ruleset);
+      this.ruleset,
+      [],
+      ...modifiers);
   }
 }

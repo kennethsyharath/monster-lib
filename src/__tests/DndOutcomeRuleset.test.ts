@@ -1,5 +1,5 @@
-import { DndOutcomeRuleset } from "../models/DndOutcomeRuleset";
-import { Roll } from "../models/Roll";
+import { DndOutcomeRuleset } from '../models/DndOutcomeRuleset';
+import { Roll } from '../models/Roll';
 
 test('resolves to correct baseline outcome', () => {
   const bonus = 2;

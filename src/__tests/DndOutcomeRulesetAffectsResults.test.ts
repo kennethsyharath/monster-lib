@@ -1,8 +1,8 @@
-import { Action } from "../models/Action"
-import { DndOutcomeRuleset } from "../models/DndOutcomeRuleset";
-import { Modifier } from "../models/Modifier";
-import { OutcomeRuleset } from "../models/OutcomeRuleset";
-import { Roll } from "../models/Roll";
+import { Action } from '../models/Action';
+import { DndOutcomeRuleset } from '../models/DndOutcomeRuleset';
+import { Modifier } from '../models/Modifier';
+import { OutcomeRuleset } from '../models/OutcomeRuleset';
+import { Roll } from '../models/Roll';
 
 let dndRuleset: OutcomeRuleset;
 let toHit: Roll;
@@ -15,24 +15,17 @@ beforeEach(() => {
 });
 
 test('DndOutcomeRuleset applies advantage', () => {
-  const action = new Action(
-    [
-      ["toHit", toHit],
-    ]
-  );
+  const action = new Action([['toHit', toHit]]);
 
   const modMap = new Map<string, Modifier[]>();
-  modMap.set(
-    "toHit", 
-    ["hasAdvantage"]
-  );
+  modMap.set('toHit', ['hasAdvantage']);
 
   const results = action.take(modMap);
-  const toHitResults = results.get("toHit");
-  
+  const toHitResults = results.get('toHit');
+
   expect(toHitResults).toBeDefined();
   if (toHitResults) {
     expect(toHitResults.diceResults.length).toBe(2);
-    expect(toHitResults.modifiers.includes("hasAdvantage")).toBe(true);
+    expect(toHitResults.modifiers.includes('hasAdvantage')).toBe(true);
   }
 });

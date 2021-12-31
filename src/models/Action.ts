@@ -1,5 +1,5 @@
-import { Result, Roll } from "..";
-import { Modifier } from "./Modifier";
+import { Result, Roll } from '..';
+import { Modifier } from './Modifier';
 
 export class Action {
   rolls: Map<string, Roll> = new Map<string, Roll>();
@@ -13,24 +13,18 @@ export class Action {
       const rollId = rollInfo[0];
       const roll = rollInfo[1];
       this.rolls.set(rollId, roll);
-    })
+    });
   }
-  
-  take(modifierMap:Map<string, Modifier[]> = new Map<string, Modifier[]>()){
+
+  take(modifierMap: Map<string, Modifier[]> = new Map<string, Modifier[]>()) {
     const results = new Map<string, Result>();
 
     this.rolls.forEach((value, key) => {
       const modifiers = modifierMap.get(key);
       if (modifiers) {
-        results.set(
-          key, 
-          value.roll(...modifiers)
-        );
+        results.set(key, value.roll(...modifiers));
       } else {
-        results.set(
-          key, 
-          value.roll()
-        );
+        results.set(key, value.roll());
       }
     });
 

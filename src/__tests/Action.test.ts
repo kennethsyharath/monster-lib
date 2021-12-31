@@ -1,8 +1,8 @@
-import { Action } from "../models/Action";
-import { DndOutcomeRuleset } from "../models/DndOutcomeRuleset";
-import { OutcomeRuleset } from "../models/OutcomeRuleset";
-import { Roll } from "../models/Roll";
-import { Modifier } from "../models/Modifier";
+import { Action } from '../models/Action';
+import { DndOutcomeRuleset } from '../models/DndOutcomeRuleset';
+import { OutcomeRuleset } from '../models/OutcomeRuleset';
+import { Roll } from '../models/Roll';
+import { Modifier } from '../models/Modifier';
 
 let dndRuleset: OutcomeRuleset;
 let toHit: Roll;
@@ -16,22 +16,14 @@ beforeEach(() => {
 
 // Let's target a DnD attack action for now.
 
-test ('when taking an action, action generates all associated Results', () => {
-  const action = new Action(
-    [
-      ["toHit", toHit], 
-      ["damage", damage]
-    ]
-  );
+test('when taking an action, action generates all associated Results', () => {
+  const action = new Action([
+    ['toHit', toHit],
+    ['damage', damage],
+  ]);
 
   const modMap = new Map<string, Modifier[]>();
-  modMap.set(
-    "toHit", 
-    [
-      "hasAdvantage", 
-      ["critsOn", 20]
-    ]
-  );
+  modMap.set('toHit', ['hasAdvantage', ['critsOn', 20]]);
 
   const results = action.take(modMap);
   expect(results.size).toBe(2);

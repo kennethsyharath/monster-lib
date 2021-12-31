@@ -13,7 +13,7 @@ What should the data representation be?
   - Actions are a composite object. Actions are made up of other things.
     We should circle back to this one. I think this is the one we do first
     explicitly *because* it's the least atomic. We can break it down further.
-  - Notes. A long string.
+  - Notes. A long string. A series of strings?
   - There could also be more, but most feats fall under notes because they're
     timing triggers or other somesuch modifiers. So they're the responsibility
     of the player or dungeon-master.

@@ -21,7 +21,7 @@ test('DndOutcomeRuleset applies advantage', () => {
   modMap.set('toHit', ['hasAdvantage']);
 
   const results = action.take(modMap);
-  const toHitResults = results.get('toHit');
+  const toHitResults = results[0].get('toHit');
 
   expect(toHitResults).toBeDefined();
   if (toHitResults) {

@@ -57,7 +57,7 @@ test('can perform given action', () => {
   const results = char.perform('attack');
 
   if (results !== undefined) {
-    expect(results.size).toEqual(2);
+    expect(results[0].size).toEqual(2);
   }
 });
 

@@ -20,11 +20,14 @@ test('when taking an action, action generates all associated Results', () => {
   const action = new Action([
     ['toHit', toHit],
     ['damage', damage],
-  ]);
+  ], 3);
 
   const modMap = new Map<string, Modifier[]>();
   modMap.set('toHit', ['hasAdvantage', ['critsOn', 20]]);
 
   const results = action.take(modMap);
-  expect(results.size).toBe(2);
+  expect(results.length).toBe(3);
+
+  const eachResSize = results.map((res) => res.size);
+  expect(eachResSize).toStrictEqual([2,2,2]);
 });

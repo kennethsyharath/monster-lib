@@ -4,10 +4,7 @@ import { Modifier } from './Modifier';
 export class Action {
   rolls: Map<string, Roll> = new Map<string, Roll>();
 
-  constructor(
-    rolls: [string, Roll][],
-    public readonly iterations:number = 1
-  ) {
+  constructor(rolls: [string, Roll][], public readonly iterations: number = 1) {
     this.initRolls(rolls);
   }
 
@@ -20,9 +17,7 @@ export class Action {
   }
 
   take(modifierMap: Map<string, Modifier[]> = new Map<string, Modifier[]>()) {
-    const results = [...Array(this.iterations).keys()].map(
-      (_) => new Map<string, Result>()
-    );
+    const results = [...Array(this.iterations).keys()].map((_) => new Map<string, Result>());
 
     results.forEach((res) => {
       this.rolls.forEach((value, key) => {

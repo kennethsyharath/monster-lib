@@ -17,10 +17,13 @@ beforeEach(() => {
 // Let's target a DnD attack action for now.
 
 test('when taking an action, action generates all associated Results', () => {
-  const action = new Action([
-    ['toHit', toHit],
-    ['damage', damage],
-  ], 3);
+  const action = new Action(
+    [
+      ['toHit', toHit],
+      ['damage', damage],
+    ],
+    3,
+  );
 
   const modMap = new Map<string, Modifier[]>();
   modMap.set('toHit', ['hasAdvantage', ['critsOn', 20]]);
@@ -29,5 +32,5 @@ test('when taking an action, action generates all associated Results', () => {
   expect(results.length).toBe(3);
 
   const eachResSize = results.map((res) => res.size);
-  expect(eachResSize).toStrictEqual([2,2,2]);
+  expect(eachResSize).toStrictEqual([2, 2, 2]);
 });
